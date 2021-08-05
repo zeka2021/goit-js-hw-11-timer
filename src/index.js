@@ -13,11 +13,11 @@ class CountdownTimer {
     this.targetDate = targetDate;
   }
 
-  setInt = setInterval(() => {
+  timerId = setInterval(() => {
     const nowDate = Date.now();
     const time = this.targetDate - nowDate;
     this.updateClockface(time);
-this.timeFinish(time);
+    this.timeFinish(time);
   }, 1000);
 
   updateClockface(time) {
@@ -38,7 +38,7 @@ this.timeFinish(time);
   }
   timeFinish(time) {
     if (time < 0) {
-      clearInterval(this.setInt);
+      clearInterval(this.timerId);
       refs.timerFace.textContent = "Finish";
     }
   }
