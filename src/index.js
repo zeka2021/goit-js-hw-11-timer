@@ -48,5 +48,5 @@ class CountdownTimer {
 };
 new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date("May 15, 2022"),
+  targetDate: new Date('Jul 17, 2019'),
 });
