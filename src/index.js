@@ -11,14 +11,17 @@ class CountdownTimer {
   constructor({ selector, targetDate }) {
     this.selector = selector;
     this.targetDate = targetDate;
+    this.timerId = null;
   }
-
-  timerId = setInterval(() => {
+  startTimer() {
+    this.timerId = setInterval(() => {
     const nowDate = Date.now();
     const time = this.targetDate - nowDate;
     this.updateClockface(time);
     this.timeFinish(time);
   }, 1000);
+ }
+  
 
   updateClockface(time) {
     const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
@@ -45,5 +48,5 @@ class CountdownTimer {
 };
 new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date("August 06, 2021"),
+  targetDate: new Date("May 15, 2022"),
 });
