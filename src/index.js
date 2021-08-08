@@ -6,7 +6,6 @@ const refs = {
   secs: document.querySelector('.value[data-value="secs"]'),
   timerFace: document.getElementById("timer-1"),
 };
-
 class CountdownTimer {
   constructor({ selector, targetDate }) {
     this.selector = selector;
@@ -21,8 +20,6 @@ class CountdownTimer {
     this.timeFinish(time);
   }, 1000);
  }
-  
-
   updateClockface(time) {
     const days = this.pad(Math.floor(time / (1000 * 60 * 60 * 24)));
     const hours = this.pad(
@@ -35,7 +32,6 @@ class CountdownTimer {
     refs.mins.textContent = `${mins}`;
     refs.secs.textContent = `${secs}`;
   }
-
   pad(value) {
     return String(value).padStart(2, "0");
   }
@@ -46,7 +42,8 @@ class CountdownTimer {
     }
   }
 };
-new CountdownTimer({
+const timer = new CountdownTimer({
   selector: "#timer-1",
-  targetDate: new Date('Jul 17, 2019'),
+  targetDate: new Date("Jul 17, 2022"),
 });
+timer.startTimer();
